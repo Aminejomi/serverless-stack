@@ -1,10 +1,5 @@
 import * as fs from "fs-extra";
-import {
-  hasResource,
-  objectLike,
-  stringLike,
-  ANY,
-} from "./helper";
+import { hasResource, objectLike, ANY } from "./helper";
 import { App, Api, Stack, ViteStaticSite } from "../src";
 
 beforeEach(async () => {
@@ -89,9 +84,7 @@ test("constructor: default buildCommand", async () => {
     },
   });
   const indexHtml = fs.readFileSync("test/vite-static-site/dist/index.html");
-  expect(indexHtml.toString().trim()).toBe(
-    "my-url {{ VITE_REFERENCE_ENV }}"
-  );
+  expect(indexHtml.toString().trim()).toBe("my-url {{ VITE_REFERENCE_ENV }}");
 });
 
 test("constructor: default buildCommand override", async () => {
